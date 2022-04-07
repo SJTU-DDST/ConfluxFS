@@ -1,0 +1,26 @@
+; -- start job file --
+
+[global]
+time_based
+per_job_logs=0
+ioengine=sync
+disk_util=0
+allow_file_create=0
+fallocate=none
+do_verify=0
+;verify=sha256
+runtime=120
+;ramp_time=50
+
+[test-jobx]
+filename=/confluxFS/MyTestDir/rwfile.txt
+offset_increment=60MB
+size=56MB
+bs=256KB
+numjobs=6
+rw=readwrite
+rwmixread=90
+;random_distribution=random
+
+; -- end job file --
+

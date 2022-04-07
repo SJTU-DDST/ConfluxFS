@@ -1,0 +1,15 @@
+set mode quit timeout
+
+define fileset name=testDIR,path="/confluxFS/workdir",entries=100,filesize=100m,prealloc
+
+define file name=StartFile,path="/confluxFS/workdir",filesize=1m,prealloc
+
+define process name=workerP,instances=18 {
+    thread name=workerT,memsize=10m,instances=1 {
+        flowop openfile name=openOP,filesetname=testDIR
+        flowop read name=readOP,filesetname=testDIR,iosize=2m,iters=45
+        flowop closefile name=closeOP
+    }
+}
+
+run 25

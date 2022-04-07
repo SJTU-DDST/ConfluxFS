@@ -1,0 +1,52 @@
+
+set $dir=/confluxFS/workdir
+set $nfiles=2000
+set $meandirwidth=200
+set $filesize=cvar(type=cvar-gamma,parameters=mean:1048576;gamma:3.0)
+set $nproc=20
+set $iosize=1m
+set $meanappendsize=8k
+
+define fileset name=bigfileset,path=$dir,size=$filesize,entries=$nfiles,dirwidth=$meandirwidth,prealloc=100,readonly
+define fileset name=logfiles,path=$dir,size=$filesize,entries=1,dirwidth=$meandirwidth,prealloc=100
+
+define process name=filereader,instances=$nproc
+{
+  thread name=filereaderthread,memsize=10m,instances=1
+  {
+    flowop openfile name=openfile1,filesetname=bigfileset
+    flowop readwholefile name=readfile1,iosize=$iosize
+    flowop closefile name=closefile1
+    flowop openfile name=openfile2,filesetname=bigfileset
+    flowop readwholefile name=readfile2,iosize=$iosize
+    flowop closefile name=closefile2
+    flowop openfile name=openfile3,filesetname=bigfileset
+    flowop readwholefile name=readfile3,iosize=$iosize
+    flowop closefile name=closefile3
+    flowop openfile name=openfile4,filesetname=bigfileset
+    flowop readwholefile name=readfile4,iosize=$iosize
+    flowop closefile name=closefile4
+    flowop openfile name=openfile5,filesetname=bigfileset
+    flowop readwholefile name=readfile5,iosize=$iosize
+    flowop closefile name=closefile5
+    flowop openfile name=openfile6,filesetname=bigfileset
+    flowop readwholefile name=readfile6,iosize=$iosize
+    flowop closefile name=closefile6
+    flowop openfile name=openfile7,filesetname=bigfileset
+    flowop readwholefile name=readfile7,iosize=$iosize
+    flowop closefile name=closefile7
+    flowop openfile name=openfile8,filesetname=bigfileset
+    flowop readwholefile name=readfile8,iosize=$iosize
+    flowop closefile name=closefile8
+    flowop openfile name=openfile9,filesetname=bigfileset
+    flowop readwholefile name=readfile9,iosize=$iosize
+    flowop closefile name=closefile9
+    flowop openfile name=openfile10,filesetname=bigfileset
+    flowop readwholefile name=readfile10,iosize=$iosize
+    flowop closefile name=closefile10
+  }
+}
+
+echo  "Web-server Version 3.2 personality successfully loaded"
+
+run 180
