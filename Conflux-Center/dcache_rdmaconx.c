@@ -26,9 +26,9 @@
 #include "thpool.h"
 
 
-const char* conflux_config_file = "../QDcache-Scripts/.conflux_config";
+const char* conflux_config_file = "../Conflux-Scripts/.conflux_config";
 
-const char* mcnip_prefix = "192.168.98.";
+const char* mcnip_prefix = "IP-Prefix24";
 const int TCP_PORT_BASE = 20009;
 const int MAXCL_THNUM = 50;
 const int MAXUSER_NUM = 12;
@@ -98,8 +98,6 @@ struct ibdev_resc {
     char ** rpc_buf;
     struct ibv_dm * dm_buf;
     char * data_buf;
-    struct ibv_mr * chunkmr;
-    char * chunk_cache;
     char * procState; // 0 -> S -> H -> E
 };
 
@@ -861,11 +859,6 @@ struct ibdev_resc* create_ibdev_resc(const char* dev_name,
     
     resc->procState = (char*)malloc(MAXCL_THNUM + 1); 
     memset(resc->procState, 0, MAXCL_THNUM + 1);
-
-    resc->chunk_cache = (char*)malloc((1<<20));
-    memset(resc->chunk_cache, 0, (1<<20));
-    resc->chunkmr = ibv_reg_mr(resc->pd, resc->chunk_cache, (1<<20), mr_flags | IBV_ACCESS_REMOTE_ATOMIC);
-    if (!resc->chunkmr) fprintf(stderr, "[ERR]: Allocate single-chunk memory mr failed!\n");
 
     return resc; 
 }

@@ -23,8 +23,8 @@
 #define DEVIO_CLASS 12
 
 
-const char* TF_MODEL_DIR = "Path-to-Conflux/QDcache-User/PyTfcode/model/";
-const char* TFLITE_FILE = "Path-to-Conflux/QDcache-User/PyTfcode/model.tflite";
+const char* TF_MODEL_DIR = "Path-to-Conflux/Conflux-User/PyTfcode/model/";
+const char* TFLITE_FILE = "Path-to-Conflux/Conflux-User/PyTfcode/model.tflite";
 
 
 int stdrand_init(){

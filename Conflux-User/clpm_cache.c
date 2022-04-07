@@ -22,7 +22,7 @@ const uint64_t LOCAL_PCACHE_BEG = (uint64_t)(1 << 30);
 const uint64_t PCACHE_CHUNK_LEN = (1 << 20);
 const uint64_t MAXN_CHUNK = ((uint64_t)(1 << 30) * 16) / (1 << 20);
 
-// in-system constant value copied from QDcache-Center Parts 
+// in-system constant value copied from Conflux-Center Parts 
 const int COPY_MAX_INODE = (1 << 20);
 const int COPY_MAX_NOFILE = 1000000;
 const int COPY_QXDFS_FDBASE = 12345678;

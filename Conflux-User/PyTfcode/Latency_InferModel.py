@@ -27,7 +27,7 @@ discrete_iokb_list = [0.5, 1.0, 2.0, 4.0, 8.0, 16.0, 32.0, 64.0, 128.0, 256.0, 5
 SHM_NAME = "/dev/shm/QZLSHM_pyscope"
 SHM_DIR = "/dev/shm/"
 PERPROC_SHMNAME_PRE = "QZLSHM_PROCOWN_DATA"
-CURRENT_WORKDIR = "Path-to-Conflux/QDcache-User/PyTfcode/"
+CURRENT_WORKDIR = "Path-to-Conflux/Conflux-User/PyTfcode/"
 
 
 SHM_HEAD_LEN = 64
