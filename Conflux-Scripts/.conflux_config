@@ -1,11 +1,11 @@
-/dev/dax1.0
-mlx5_1
-7
-8
-40,41,42,43,71,72,73,74,
-1
-7,
-0,0,0,0,0,0,1,0,
-1
-8,
-0,0,0,0,0,0,0,1,
+/dev/dax1.0  #the DEV-DAX charactor device path
+mlx5_1  #the RDMA NIC device name
+8  #position of current node
+8  #number of all know nodes
+40,41,42,43,71,72,73,74,  #ip suffix(8) of all know nodes
+1  #number of server-side nodes
+7,  #list of position of server-side nodes
+0,0,0,0,0,0,1,0,  #list of orders in server-side nodes
+1  #number of client-side nodes
+8,  #list of position of client-side nodes
+0,0,0,0,0,0,0,1,  #list of orders in client-side nodes

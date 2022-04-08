@@ -42,15 +42,6 @@ int USER_NUM;
 uint16_t *user_mcnid;
 uint16_t *user_order;
 
-// const int MCN_NUM = 8;
-// int mcnip_suffix[8] = {40,41,42,43,71,72,73,74};
-// const int CENTER_NUM = 1;
-// uint16_t center_mcnid[1] = {7};
-// uint16_t center_order[8] = {0,0,0,0,0,0,1,0};
-// const int USER_NUM = 1;
-// uint16_t user_mcnid[1] = {8};
-// uint16_t user_order[8] = {0,0,0,0,0,0,0,1};
-
 
 char* MLX5_DEV_NAME;
 const int IB_PORT_ID = 1;

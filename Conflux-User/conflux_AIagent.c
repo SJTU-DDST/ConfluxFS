@@ -82,7 +82,7 @@ int main(){
     // Test the retrain time overhead
     start_caltime_nano(nano_timer);
     trigger_tflite_retrain(tflite_model);
-    reload_tflite_model(tflite_model);
+    reload_tflite_model(tflite_model, 0);
     t_interval = stop_caltime_nano(nano_timer);
     fprintf(stdout, "\nuse %llu.%09llu sec\n\n", t_interval/1000000000, t_interval%1000000000);
 

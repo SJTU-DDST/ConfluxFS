@@ -1,12 +1,26 @@
 
-# Python -- Tensorflow usage logger
+# Guides for Tensorflow
 
-## 2021-06-20
+The machine learning model is trained by a background process in Conflux.
+We implement it using a Python module.
 
-With TF C APIs, it seems almost impossible to avoid kinds of buffer allocating and metadata loading actions.
+### **Install Conda**
 
-To reduce inference software overhead, I deicide to exploit TF lite library later.
+Conda is an open-source package management system and environment management system for Python.
+We can set up a totally separate environment to run that different version of Python than the normal linux pre-enabled version.
+See the official documents [here](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html) for installation guides.
 
-## 2021-06-29
+### **Install tensorflow in Conda**
 
-Using TF lite, one inference takes <=4us, which may be further reduced by simplifying the model.
+With conda successfully installed, we use following commands to install tensorflow (cpu version):   
+`
+conda create -n tf2 tensorflow
+`   
+`
+conda activate tf2
+`   
+Note that the name of conda environment should be consistent with the test scripts in *./Conflux-Scripts*.
+
+### **Run the training process**
+
+Within the activated conda environment, simply using `python` to start up the *Latency_InferModel* process.
